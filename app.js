@@ -36,6 +36,7 @@ var Users = mongoose.model('Users', userSchema);
 passport.use(new LocalStrategy(
   function(username, password, done) {
 
+    // Coge el documento de MongoDB
     console.log(username);
     console.log(password);
 
@@ -45,12 +46,15 @@ passport.use(new LocalStrategy(
       console.log('Find user:');
       console.log(users);
 
+      // Sale undefined no coge el documento users
       console.log(users.password);
       console.log(users.name);
+
       var hash = users.password;
 
       console.log(bcrypt.hashSync(hash));
 
+      // compara usuario local(username y password) con el de la base de datos(users.name y .password) 
       if ((username == users.name) && (bcrypt.compareSync(password, hash))) {
         // login OK
         return done(null, username);
