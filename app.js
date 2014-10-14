@@ -26,7 +26,8 @@ passport.deserializeUser(function(user, done) {
 
 // schema
 var userSchema = mongoose.Schema({
-    name: String
+    name: String,
+    password: String
 });
 
 var Users = mongoose.model('Users', userSchema);
@@ -46,20 +47,26 @@ passport.use(new LocalStrategy(
       console.log('Find user:');
       console.log(users);
 
-      // Sale undefined no coge el documento users
-      console.log(users.password);
-      console.log(users.name);
+      // Desglose del usuario encontrado
+      console.log(users[0].password);
+      console.log(users[0].name);
 
-      var hash = users.password;
-
-      console.log(bcrypt.hashSync(hash));
+      var hash = users[0].password;
+      //console.log(hash);
+      //console.log(bcrypt.hashSync(hash));
 
       // compara usuario local(username y password) con el de la base de datos(users.name y .password) 
-      if ((username == users.name) && (bcrypt.compareSync(password, hash))) {
+      //if ((username == users.name) && (bcrypt.compareSync(password, hash))) {
+      if ((username == users[0].name) && (password==hash)) {
         // login OK
         return done(null, username);
       } else {
         // login KO
+        console.log("resultados:");
+        console.log("usuario local: "+username);
+        console.log("usuario db: "+users[0].name);
+        console.log("contraseña local: "+password);
+        console.log("contraseña bd: "+users[0].password);
         return done(null, false);
       }
 
