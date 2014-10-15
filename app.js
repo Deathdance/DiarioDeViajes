@@ -50,6 +50,7 @@ passport.use(new LocalStrategy(
       // Desglose del usuario encontrado
       console.log(users[0].password);
       console.log(users[0].name);
+      console.log(users[0].password2);
 
       var hash = users[0].password;
       //console.log(hash);
