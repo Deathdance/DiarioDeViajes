@@ -13,3 +13,5 @@ Situarse en la carpeta del app.js:
   - > bcrypt.hashSync("gorka");
     '$2a$10$o1TZTgwquDqtNNBwIqy2Mes04zlRyufWqy8Q26gCejJUlLYzC.Ajq' (gorka encryptado)
 
+Actualizar moongoose:
+  - sudo apt-get install gcc make build-essential
