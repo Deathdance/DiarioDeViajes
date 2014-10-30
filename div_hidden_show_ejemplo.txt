@@ -1,0 +1,32 @@
+/* show/hidde div */
+
+
+cogido html:
+
+	<a href="#" onclick="toggle_visibility('list1');">
+	  <p>List One</p>
+	</a>
+	<div id="list1" class="alist" style="display:none;">
+	  <ul>
+	    <li>Item One</li>
+ 	   <li>Item Two</li>
+	    <li>Item Three</li>
+	  </ul>
+	</div>
+	<a href="#" onclick="toggle_visibility('list2');">
+	  <p>List Two</p>
+	</a>
+	<div id="list2" class="alist" style="display:none;">
+	 <ul>
+ 	   <li>Item One</li>
+ 	   <li>Item Two</li>
+ 	   <li>Item Three</li>
+ 	 </ul>
+	</div>
+
+jquery:
+
+	function toggle_visibility(id) {
+ 	 $(".list").hide();
+	  $("#" + id).toggle();
+	}
