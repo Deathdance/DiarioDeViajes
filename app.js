@@ -28,7 +28,7 @@ passport.deserializeUser(function(user, done) {
 var userSchema = mongoose.Schema({
     name: String,
     password: String
-});
+}, { collection: 'users' });
 
 var Users = mongoose.model('Users', userSchema);
 

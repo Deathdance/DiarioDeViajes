@@ -7,6 +7,13 @@
 <meta charset="utf-8">
 <title>Diario de Viajes</title>
 <link rel="stylesheet" type="text/css" href="main.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function toggle_visibility(id) {
+        $(".button").hide();
+        $("#" + id).toggle();
+    }
+</script>
 </head>
 <body>
 <div class="container">
@@ -21,11 +28,11 @@
             </div>
             <div>
                 <input type="submit" value="Log in" />
+                <a href="#" class="registrarse" onclick="toggle_visibility('button');" type="button">Registrarse</a>
                 <a href="#">Olvidado la contraseña?</a>
-                <a href="#">Registrarse</a>
             </div>
         </form><!-- form -->
-        <div class="button">
+        <div id="button" class="abutton" style="display:none;">
             <a href="#">Download App</a>
         </div><!-- button -->
     </section><!-- content -->
